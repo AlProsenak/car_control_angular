@@ -1,0 +1,74 @@
+<form [formGroup]="vehicleForm" (ngSubmit)="saveVehicle()">
+    <mat-card>
+        <mat-card-header>
+            <h2>{{ title }}</h2>
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <mat-form-field>
+                <mat-label>Manufacturer</mat-label>
+                <input matInput formControlName="make">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Model</mat-label>
+                <input matInput formControlName="model">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Year</mat-label>
+                <input matInput type="number" min="1970" formControlName="year">
+<!--                <input matInput [matDatepicker]="picker" formControlName="year">-->
+<!--                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--                <mat-datepicker #picker></mat-datepicker>-->
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Fuel Type</mat-label>
+                <mat-select formControlName="fuel_type">
+                    <mat-option value="">Select fuel type</mat-option>
+                    <mat-option value="DIESEL">Diesel</mat-option>
+                    <mat-option value="GASOLINE">Gasoline</mat-option>
+                    <mat-option value="ELECTRIC">Electric</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Door Count</mat-label>
+                <input matInput type="number" min="0" formControlName="door_count">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input matInput type="number" min="0" step="0.01" formControlName="price">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Currency Code</mat-label>
+                <mat-select formControlName="currency_code">
+                    <mat-option value="">Select currency code</mat-option>
+                    <mat-option value="AUD">AUD</mat-option>
+                    <mat-option value="CAD">CAD</mat-option>
+                    <mat-option value="CHF">CHF</mat-option>
+                    <mat-option value="CNY">CNY</mat-option>
+                    <mat-option value="EUR">EUR</mat-option>
+                    <mat-option value="GBP">GBP</mat-option>
+                    <mat-option value="JPY">JPY</mat-option>
+                    <mat-option value="USD">USD</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description">
+            </mat-form-field>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary">Save</button>
+            <a mat-raised-button color="accent" (click)="closePopup()">Close</a>
+        </mat-card-actions>
+    </mat-card>
+</form>
